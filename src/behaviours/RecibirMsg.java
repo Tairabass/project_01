@@ -24,7 +24,7 @@ public class RecibirMsg extends CyclicBehaviour{
             block();
 
         this.msg = myAgent.receive();
-dddd
+ddddoooo
     }
 
 }
