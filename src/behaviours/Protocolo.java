@@ -16,7 +16,6 @@ public class Protocolo extends SimpleAchieveREInitiator{
 
     public void handleInform(ACLMessage msg) {
 
-
         myAgent.addBehaviour(new RecibirMsg(msg));
 
     }
