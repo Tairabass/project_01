@@ -54,8 +54,11 @@ public class Mapa {
             this.mapaMatriz = new char[this.anchura][this.altura];
 
         // Sino actualiza el índice correspondiente
-        }else
+        }else {
             indice = 2;
+            this.posX = Integer.parseInt(parts[0]);
+            this.posY = Integer.parseInt(parts[1]);
+        }
 
             int k = 0;
 
@@ -76,8 +79,8 @@ public class Mapa {
                 }
         }
 
-        System.out.println(this.banderaX);
-        System.out.println(this.banderaY);
+        System.out.println(this.posX);
+        System.out.println(this.posY);
 
         for(int i = 0; i < this.altura; i++){
             for(int j = 0; j < this.anchura; j++){
@@ -92,30 +95,30 @@ public class Mapa {
 
         ArrayList hijos = new ArrayList();
 
-        if(mapaMatriz[posX-1][posY] != 'H'){
-            hijos.add(new Mapa(this, this.posX-1, this.posY));
-        }
-        if(mapaMatriz[posX-1][posY+1] != 'H'){
-
-        }
-        if(mapaMatriz[posX][posY+1] != 'H'){
-
-        }
-        if(mapaMatriz[posX+1][posY+1] != 'H'){
-
-        }
-        if(mapaMatriz[posX+1][posY] != 'H'){
-
-        }
-        if(mapaMatriz[posX+1][posY-1] != 'H'){
-
-        }
-        if(mapaMatriz[posX][posY-1] != 'H'){
-
-        }
-        if(mapaMatriz[posX-1][posY-1] != 'H'){
-
-        }
+//        if(this.mapaMatriz[posX-1][posY] != 'H'){
+//            hijos.add(new Mapa(this, this.posX-1, this.posY));
+//        }
+//        if(mapaMatriz[posX-1][posY+1] != 'H'){
+//
+//        }
+//        if(mapaMatriz[posX][posY+1] != 'H'){
+//
+//        }
+//        if(mapaMatriz[posX+1][posY+1] != 'H'){
+//
+//        }
+//        if(mapaMatriz[posX+1][posY] != 'H'){
+//
+//        }
+//        if(mapaMatriz[posX+1][posY-1] != 'H'){
+//
+//        }
+//        if(mapaMatriz[posX][posY-1] != 'H'){
+//
+//        }
+//        if(mapaMatriz[posX-1][posY-1] != 'H'){
+//
+//        }
 
     }
 

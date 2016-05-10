@@ -16,6 +16,7 @@ public class RecibirMsg extends CyclicBehaviour{
 
         if(this.msg != null){
             mapa.actualizarMapa(msg.getContent());
+//            mapa.generarHijos();
 //          System.out.println(envio.getSender().getLocalName() + ": " + envio.getContent());
             EnviarMsg mensaje = new EnviarMsg(this.msg.getSender().getLocalName(), "2", ACLMessage.PROPOSE, false);
             myAgent.addBehaviour(mensaje);
