@@ -1,6 +1,7 @@
 package Principal;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class Mapa {
 
@@ -11,7 +12,7 @@ public class Mapa {
 
     public Mapa(){}
 
-    public Mapa(Mapa copia, int x, int y){
+    public Mapa(Mapa copia, int y, int x){
 
         this.altura = copia.altura;
         this.anchura = copia.anchura;
@@ -20,20 +21,21 @@ public class Mapa {
         this.posX = x;
         this.posY = y;
         this.padre = copia;
+        this.mapaMatriz = copia.mapaMatriz;
 
-        System.out.println("---------------------------------------------------");
-
-        for(int i = 0; i < this.altura; i++){
-            for(int j = 0; j < this.anchura; j++){
-                System.out.print(mapaMatriz[j][i]);
-            }
-            System.out.println();
-        }
-
-        System.out.println(this.posX);
-        System.out.println(this.posY);
-
-        System.out.println("---------------------------------------------------");
+//        System.out.println("---------------------------------------------------");
+//
+////        for(int i = 0; i < this.altura; i++){
+////            for(int j = 0; j < this.anchura; j++){
+////                System.out.print(mapaMatriz[j][i]);
+////            }
+////            System.out.println();
+////        }
+//
+//        System.out.println(this.posX);
+//        System.out.println(this.posY);
+//
+//        System.out.println("---------------------------------------------------");
 
     }
 
@@ -48,8 +50,8 @@ public class Mapa {
         if (parts.length > 3){
             this.anchura = Integer.parseInt(parts[0]);
             this.altura = Integer.parseInt(parts[1]);
-            this.posX = Integer.parseInt(parts[3]);
-            this.posY = Integer.parseInt(parts[4]);
+            this.posX = Integer.parseInt(parts[4]);
+            this.posY = Integer.parseInt(parts[5]);
             indice = 6;
             this.mapaMatriz = new char[this.anchura][this.altura];
 
@@ -95,31 +97,45 @@ public class Mapa {
 
         ArrayList hijos = new ArrayList();
 
-//        if(this.mapaMatriz[posX-1][posY] != 'H'){
-//            hijos.add(new Mapa(this, this.posX-1, this.posY));
-//        }
-//        if(mapaMatriz[posX-1][posY+1] != 'H'){
-//
-//        }
-//        if(mapaMatriz[posX][posY+1] != 'H'){
-//
-//        }
-//        if(mapaMatriz[posX+1][posY+1] != 'H'){
-//
-//        }
-//        if(mapaMatriz[posX+1][posY] != 'H'){
-//
-//        }
-//        if(mapaMatriz[posX+1][posY-1] != 'H'){
-//
-//        }
-//        if(mapaMatriz[posX][posY-1] != 'H'){
-//
-//        }
-//        if(mapaMatriz[posX-1][posY-1] != 'H'){
-//
-//        }
+        System.out.println("Altura: " + this.altura + ", anchura: " + this.anchura);
+
+        if(this.mapaMatriz[this.posY][this.posX-1] != 'H'){
+            hijos.add(new Mapa(this, this.posY, this.posX-1));
+        }
+        if(mapaMatriz[this.posY+1][this.posX-1] != 'H'){
+            hijos.add(new Mapa(this, this.posY+1, this.posX-1));
+        }
+        if(mapaMatriz[this.posY+1][this.posX] != 'H'){
+            hijos.add(new Mapa(this, this.posY+1, this.posX));
+        }
+        if(mapaMatriz[this.posY+1][this.posX+1] != 'H'){
+            hijos.add(new Mapa(this, this.posY+1, this.posX+1));
+        }
+        if(mapaMatriz[this.posY][this.posX+1] != 'H'){
+            hijos.add(new Mapa(this, this.posY, this.posX+1));
+        }
+        if(mapaMatriz[this.posY-1][this.posX+1] != 'H'){
+            hijos.add(new Mapa(this, this.posY-1, this.posX+1));
+        }
+        if(mapaMatriz[this.posY-1][this.posX] != 'H'){
+            hijos.add(new Mapa(this, this.posY-1, this.posX));
+        }
+        if(mapaMatriz[this.posY-1][this.posX-1] != 'H'){
+            hijos.add(new Mapa(this, this.posY-1, this.posX-1));
+        }
+
+        hijos.get(0).toString();
+
+        for(int i=0; i < hijos.size();i++){
+
+            System.out.println(hijos.get(i).toString());
+        }
 
     }
 
+    public String toString(){
+        String s;
+        s = (this.posX + ", " + this.posY);
+        return s;
+    }
 }
